@@ -1,3 +1,4 @@
+#Bu kod kameraya gösterilen AprilTag'i detect edip çerçeve içine alıyor.
 import cv2
 from apriltag import apriltag
 import numpy as np
