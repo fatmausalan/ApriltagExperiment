@@ -20,13 +20,13 @@ We have installed opencv from scratch with pip to solve this error:
 After this command, we got errors such as libcblas-dev, libhdf5 respectively. 
 For these errors, we ran the following commands in order:
 
-	* sudo apt-get install libcblas-dev
-	* sudo apt-get install libhdf5-dev
-	* sudo apt-get install libhdf5-serial-dev
-	* sudo apt-get install libatlas-base-dev
-	* sudo apt-get install libjasper-dev 
-	* sudo apt-get install libqtgui4 
-	* sudo apt-get install libqt4-test 
+	- sudo apt-get install libcblas-dev
+	- sudo apt-get install libhdf5-dev
+	- sudo apt-get install libhdf5-serial-dev
+	- sudo apt-get install libatlas-base-dev
+	- sudo apt-get install libjasper-dev 
+	- sudo apt-get install libqtgui4 
+	- sudo apt-get install libqt4-test 
 
 
 Then, when we ran the code we wrote above with the command "python test.py", we were able to run it without any error.
