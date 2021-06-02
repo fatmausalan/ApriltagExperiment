@@ -9,6 +9,6 @@ Matplotlib, Numpy, SciPy, OpenCV kütüphaneleri pip ile kurulur. Bazıları ful
 	* Kurulumun yapıldığını doğrulmak için:
 		- ``` python3 -c 'import cv2; print(cv2.__version__)' ```
 		- Bu komutu çalıştırdıktan sonra ekranda cv2 versiyonu yazmalıdır.
-2. https://github.com/AprilRobotics/apriltag adresindeki repository'yi indirip cmake komutu ile çalıştırırız.
-Ardından sudo make install komutu ile kurulumu tamamlarız.
+2. https://github.com/AprilRobotics/apriltag adresindeki repository'yi indirip ``` cmake ``` komutu ile çalıştırırız.
+Ardından ``` sudo make install ``` komutu ile kurulumu tamamlarız.
 3. Artık Raspberrymizde AprilTag'e sahibiz.
