@@ -28,4 +28,4 @@ aşağıdaki komutları çalıştırdık:
 	* sudo apt-get install libqtgui4 
 	* sudo apt-get install libqt4-test 
 
-Ardından yukarda yazdığımız kodu "python test.py" komutu ile çalıştırdığımızda hata almadan çalıştırabildik.
+Ardından yukarda yazdığımız kodu ``` python test.py ``` komutu ile çalıştırdığımızda hata almadan çalıştırabildik.
