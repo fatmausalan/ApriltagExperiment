@@ -1,4 +1,4 @@
-#Chapter 0
+# Chapter 0
 
 We will make the necessary setups in this part.
 1. We are installing a full version of Raspbian OS system with Raspberry Pi Imager to our RaspberryPi Zero.
