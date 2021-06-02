@@ -20,12 +20,12 @@ Bu hatayı çözebilmek için opencv'yi pip ile baştan kurduk.
 Bu komuttan sonra sırasıyla libcblas-dev, libhdf5 gibi hatalar aldık. Bu hatalar için sırasıyla 
 aşağıdaki komutları çalıştırdık:
 
-	* sudo apt-get install libcblas-dev
-	* sudo apt-get install libhdf5-dev
-	* sudo apt-get install libhdf5-serial-dev
-	* sudo apt-get install libatlas-base-dev
-	* sudo apt-get install libjasper-dev 
-	* sudo apt-get install libqtgui4 
-	* sudo apt-get install libqt4-test 
+	- sudo apt-get install libcblas-dev
+	- sudo apt-get install libhdf5-dev
+	- sudo apt-get install libhdf5-serial-dev
+	- sudo apt-get install libatlas-base-dev
+	- sudo apt-get install libjasper-dev 
+	- sudo apt-get install libqtgui4 
+	- sudo apt-get install libqt4-test 
 
 Ardından yukarda yazdığımız kodu ``` python test.py ``` komutu ile çalıştırdığımızda hata almadan çalıştırabildik.
