@@ -29,7 +29,7 @@
 * HDMI to Mini HDMI Adaptör
 * Raspberry Pi Kamera V2.1
 * Raspberry Pi Zero Kamera Kablosu
-#### For Car 
+#### Araba İçin 
 * 2 adet 6 V 250 RPM Motor ve Tekerlek Seti
 * Jumper Kablo 
 * L298N Voltaj Regulatörlü Çift Motor Sürücü Kartı
