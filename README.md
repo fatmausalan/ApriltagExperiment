@@ -1,6 +1,6 @@
 # ApriltagExperiment
 In this repository, we want to share our experiment with apriltag. And also, we answer the questions of what is apriltag, how we use it, which component do we use and why. 
-You can reach our steps from Documeents folder. And, under Code folder, test and project codes can be found. 
+You can reach our steps from Documeents folder. And, under Code folder, test and project codes can be found. Under Imagesfolder, you can find all tags which are we use in all project. 
 * Step 0 --> What is AprilTag?
 * Step 1 --> Needed Componnets for our Project
 * Step 2 --> AprilTag Usage with Raspberry Pi Zero W
