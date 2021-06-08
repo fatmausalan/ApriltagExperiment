@@ -48,3 +48,5 @@ For these errors, we ran the following commands in order:
 
 
 Then, when we ran the code we wrote above with the command "python test.py", we were able to run it without any error.
+You can find the code file under Code folde, [test.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test.py).
+And  also, You can test the code with camera, [test2.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test2.py).
