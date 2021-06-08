@@ -48,7 +48,7 @@ For these errors, we ran the following commands in order:
 
 
 Then, when we ran the code we wrote above with the command "python test.py", we were able to run it without any error.
-You can find the code file under Code folder, [test.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test.py).
+You can find the code file under Code folder, [test.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test.py).  
 And  also, You can test the code with camera, [test2.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test2.py).
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -99,5 +99,5 @@ Bu hatalar için sırasıyla aşağıdaki komutları çalıştırdık:
 	- sudo apt-get install libqt4-test 
 	
 Daha sonra yukarıda yazdığımız kodu "python test.py" komutu ile hatasız bir şekilde çalıştırabildik.
-Code klasörünün altında kodu bulabilirsiniz: [test.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test.py).
+Code klasörünün altında kodu bulabilirsiniz: [test.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test.py).  
 Ayrıca, kodu kamera ile test edebilirsiniz: [test2.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test2.py).
