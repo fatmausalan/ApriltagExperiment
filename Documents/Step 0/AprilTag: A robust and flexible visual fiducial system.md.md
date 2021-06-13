@@ -1,7 +1,12 @@
 
+
 ## AprilTag: A robust and flexible visual fiducial system
   
   &emsp;AprilTags are unlike 2D barcode systems in which the position of the barcode in the image is unimportant, visual fiducial systems provide camera-relative position and orientation of a tag. Fiducial systems also are designed to detect multiple markers in a single image.
+    
+![image](https://user-images.githubusercontent.com/49456613/121807772-41ed6080-cc5e-11eb-9f83-43c6a475d455.png)  
+Fig. 1. Example detections. This paper describes a visual fiducial system based on 2D planar targets. The detector is robust to lighting variation and occlusions and produces accurate localizations of the tags.
+    
 
 ### Detector
   
@@ -56,4 +61,69 @@
   
   
 ## References 
+* https://april.eecs.umich.edu/media/pdfs/olson2011tags.pdf
+
+
+
+  
+## AprilTag: Sağlam ve esnek bir görsel referans sistem
+  
+  &emsp; AprilTags, barkodun görüntüdeki konumunun önemsiz olduğu 2D barkod sistemlerinden farklıdır, görsel referans sistemleri, bir etiketin kameraya göre konumunu ve yönünü sağlar. Fiducial sistemleri ayrıca tek bir görüntüde birden fazla işaretleyiciyi tespit etmek için tasarlanmıştır.  
+  ![image](https://user-images.githubusercontent.com/49456613/121807772-41ed6080-cc5e-11eb-9f83-43c6a475d455.png)  
+  Şekil 1. Örnek tespitler. Bu makale, 2B düzlemsel hedeflere dayalı görsel bir referans sistemi açıklamaktadır. Dedektör, aydınlatma varyasyonlarına ve tıkanıklıklara karşı dayanıklıdır ve etiketlerin doğru lokalizasyonlarını üretir.
+
+  
+### Algılayıcı  
+  &emsp; Bu bölümde, işi bir görüntüdeki olası etiketlerin konumunu tahmin etmek olan dedektörü inceleyeceğiz.  
+  ![image](https://user-images.githubusercontent.com/49456613/121807935-e8396600-cc5e-11eb-8723-cc9e813855c6.png)  
+  Şekil 3. Erken işleme adımları. Etiket algılama algoritması, her pikseldeki gradyanı hesaplayarak, büyüklüklerini (birinci) ve yönünü (ikinci) hesaplayarak başlar. Grafiğe dayalı bir yöntem kullanılarak, benzer gradyan yönlerine ve büyüklüğüne sahip pikseller, bileşenler halinde kümelenir (üçüncü). Ağırlıklı en küçük kareler kullanılarak, her bileşendeki (dördüncü) piksellere bir çizgi parçası sığdırılır. Doğru parçasının yönü, gradyan yönü ile belirlenir, böylece bölümler solda karanlık, sağda açık olur. Çizgilerin yönü, orta noktalarında kısa dikey “çentikler” ile görselleştirilir; bu "çentiklerin" her zaman daha açık olan bölgeyi gösterdiğine dikkat edin.  
+  
+1. Çizgi segmentlerini tespit etme
+  
+  &emsp; Her düğümün bir pikseli temsil ettiği bir grafik oluşturulur. Kenarlar, piksellerin gradyan yönündeki farkına eşit bir kenar ağırlığına sahip bitişik pikseller arasına eklenir. Bu kenarlar daha sonra artan kenar ağırlığına göre sıralanır ve işlenir: her kenar için piksellerin ait olduğu bağlı bileşenlerin bir araya getirilmesi gerekip gerekmediğini test ederiz. 
+  &emsp; Gradyan tabanlı kümeleme yönteminin kullandığı görüntüdeki gürültüye duyarlıdır: küçük miktarlardaki gürültü bile, bileşenlerin büyümesini engelleyerek yerel gradyan yönlerinin değişmesine neden olur. Bu sorunun çözümü, görüntüyü alçak geçiren filtre uygulamaktır.  
+  
+  ![image](https://user-images.githubusercontent.com/49456613/121808008-53833800-cc5f-11eb-9103-53b146e853fd.png)  
+    
+  &emsp;Kümeleme işlemi tamamlandıktan sonra, çizgi parçaları, her noktayı gradyan büyüklüğüne göre ağırlıklandıran geleneksel bir en küçük kareler prosedürü kullanılarak her bağlı bileşene uydurulur. Her çizgi parçasını, çizginin karanlık tarafı solunda ve aydınlık tarafı sağında olacak şekilde ayarlıyoruz. İşlemin bir sonraki aşamasında, bu, her dörtlü etrafında bir sarma kuralı uygulamamızı sağlar.  
+  
+2. Quad tespiti
+  
+  &emsp; Bu noktada, bir görüntü için bir dizi yönlendirilmiş çizgi parçası hesaplanmıştır. Bir sonraki görev, 4 kenarlı bir şekil, yani bir dörtlü(quad) oluşturan doğru parçalarının dizilerini bulmaktır. Buradaki zorluk, çizgi segmentasyonlarındaki tıkanıklıklara ve gürültüye karşı mümkün olduğunca sağlam olurken bunu yapmaktır.  
+  &emsp; Dört satır bulunduğunda, bir aday dörtlü algılama oluşturulur. Bu dörtlünün köşeleri, onu oluşturan çizgilerin kesişme noktalarıdır. Çizgiler, birçok pikselden alınan veriler kullanılarak sığdırıldığından, bu köşe tahminleri, pikselin küçük bir bölümü için doğrudur.  
+  
+3. Homografi ve dışsal tahmin
+    
+  &emsp; Etiketin konumunun ve yönünün hesaplanması ek bilgi gerektirir: kameranın odak uzaklığı ve etiketin fiziksel boyutu. 3 × 3 homografi matrisi (DLT (Doğrudan Doğrusal Dönüşüm) ile hesaplanır) 3 × 4 kamera projeksiyon matrisi P (ki bunun bilindiğini varsayıyoruz) ve 4×3 kesik dışsal matris E'nin çarpımı olarak yazılabilir. matris tipik olarak 4 × 4'tür, ancak etiket üzerindeki her konum, etiketin koordinat sisteminde z = 0'dadır. Böylece, her etiket koordinatını, z örtük olarak sıfır olan bir 2B homojen nokta olarak yeniden yazabilir ve dışsal matrisin üçüncü sütununu kaldırarak, kesik dışsal matrisi oluşturabiliriz.
+  
+### Yük Kodu Çözme  
+  &emsp; Son görev, faydalı yük alanındaki bitleri okumaktır. Bunu, her bit alanının etikete göre koordinatlarını hesaplayarak, homografiyi kullanarak bunları görüntü koordinatlarına dönüştürerek ve ardından ortaya çıkan pikselleri eşikleyerek yapıyoruz. Aydınlatmaya karşı dayanıklı olmak için (bu sadece etiketten etikete değil, aynı zamanda bir etiket içinde de değişebilir), uzamsal olarak değişen bir eşik kullanırız.  
+  
+  &emsp; Spesifik olarak, "siyah" piksellerin yoğunluğunun uzamsal olarak değişen modelini ve "beyaz" modellerin yoğunluğunun ikinci bir modelini oluşturuyoruz. Bu modeli öğrenmek için hem beyaz hem de siyah piksellerin bilinen örneklerini içeren etiketin kenarlığını kullanıyoruz (bkz. Şekil 4). Aşağıdaki yoğunluk modelini kullanıyoruz:  
+    
+  &emsp; &emsp; I(x, y) = Ax + Bxy + Cy + D  
+    
+    
+  &emsp; Bu model, en küçük kareler regresyonu kullanılarak kolayca hesaplanan dört parametreye sahiptir. Biri siyah, diğeri beyaz olmak üzere iki model yapıyoruz. Veri bitlerinin kodunu çözerken kullanılan eşik, siyah beyaz modellerin tahmin edilen yoğunluk değerlerinin yalnızca ortalamasıdır.  
+  
+### Kodlama Sistemi
+  &emsp; Veri yükünün kodu bir dörtlüden çözüldüğünde, bunun geçerli olup olmadığını belirlemek kodlama sisteminin işidir. Bir kodlama sisteminin amaçları şunlardır:
+      
+    - Ayırt edilebilir kodların sayısını en üst düzeye çıkarma  
+    - Tespit edilebilecek veya düzeltilebilecek bit hatalarının sayısını en üst düzeye çıkarma
+    - Yanlış pozitif/etiketler arası karışıklık oranını en aza indirgeme
+    - Etiket başına toplam bit sayısını (ve dolayısıyla etiketin boyutunu) en aza indirme
+    
+  &emsp; Bu hedefler genellikle çatışır ve bu nedenle belirli bir kod bir takası temsil eder. Bu bölümde, önceki yöntemlere göre önemli avantajlar sağlayan sözlük kodlarına dayalı yeni bir kodlama sistemi anlatılmaktadır. Prosedürümüz, kullanıcının ihtiyaçlarına en uygun kodu kullanmasına izin vererek, çeşitli özelliklere sahip sözlük kodları üretebilir.  
+  
+### Sonuç  
+
+  Önceki yöntemleri önemli ölçüde geliştiren görsel bir referans sistemi tanımladık. Önceki yöntemlerden belirgin şekilde daha güçlü olan bir kodlama sistemi ile birlikte grafik tabanlı bir kümeleme yöntemi kullanarak kenarları algılamak için yeni bir yaklaşım tanımladık.  
+    
+  &emsp; Diğer sistemlerin aksine (ARToolkit'in dikkate değer istisnası dışında), uygulama tamamen açıktır. Kaynak kod ve kıyaslama yazılımı ücretsiz olarak mevcuttur:  
+  
+  http://april.eecs.umich.edu/
+  
+  
+## Kaynakça 
 * https://april.eecs.umich.edu/media/pdfs/olson2011tags.pdf
