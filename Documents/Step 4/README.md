@@ -1,4 +1,6 @@
 # Step 4 - Giving Basic Command to Car with AprilTag
+<img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/11.jpeg" width="300" />
+<img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/22.jpeg" width="300" />
 At this stage, we combined our code that recognizes AprilTags with our code that guides our tool. We wrote 5 functions to give direction to the vehicle. These are stop(), backward(), forward(), turnLeft() and turnRight() functions. We can consider the forward function from these functions.
 ```
 def forward():
