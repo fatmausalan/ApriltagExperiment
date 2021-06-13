@@ -26,6 +26,8 @@ How to connect and test the car to be created using Raspberry Pi is explained in
 ### Step 4
 How to steer the car using AprilTag is explained in this step. At the same time, the processing time of the information received from the tags is examined.
 
+Note: As a result of the studies, we have created a repo and tool that needs to be continued to be developed. Due to the delay in recognizing the tags, the vehicle has not been able to operate in a controlled manner yet. However, the research process continues. If it is desired to add to the repo, it can be done in accordance with the general structure.
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # AprilTag Deneyleri
@@ -56,3 +58,5 @@ Bu adım, Raspberry Pi Zero ile nasıl çalışabileceğinizi kısaca özetlemek
 Raspberry Pi kullanılarak oluşturulacak arabanın nasıl bağlanacağı ve test edileceği bu bölümde anlatılmaktadır.
 ### Adım 4
 AprilTag kullanarak arabanın nasıl yönlendirileceği bu adımda açıklanmaktadır. Aynı zamanda taglerden alınan bilgilerin işlenme süresi incelenir.
+
+Not: Çalışmaların sonucunda geliştirilmeye devam edilmesi gereken bir repo ve araç oluşturmuş olduk. Aracın tag'leri tanıma süresindeki gecikmeden ötürü kontrollü bir şekilde çalışması henüz sağlanamadı. Ancak araştırma süreci devam etmektedir. Eğer repoya ekleme yapılmak isteniyorsa genel yapıya uygun olacak şekilde yapılabilir. 
