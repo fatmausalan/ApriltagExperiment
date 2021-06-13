@@ -97,3 +97,4 @@ while(true):
     GPIO.output(in4,GPIO.HIGH)    
 ```
 Bağlantılar için dikkat etmmemiz gereken noktalardan biri GND bağlantısı oldu. Motorların motor sürücü ile çalıştırılabilmesi için motor sürücüden Raspberry ve LiPo için ortak GND bağlantısı yapılması gerekiyor. 
+Kodun tamamına Code klasörü altındaki [car.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/car.py) dosyasından ulaşabilirsiniz.
