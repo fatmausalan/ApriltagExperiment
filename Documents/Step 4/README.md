@@ -1,6 +1,8 @@
 # Step 4 - Giving Basic Command to Car with AprilTag
-<img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/11.jpeg" width="300" />
-<img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/22.jpeg" width="300" />
+<p float="left">
+    <img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/11.jpeg" width="400" />
+    <img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/22.jpeg" width="400" />
+</p>
 At this stage, we combined our code that recognizes AprilTags with our code that guides our tool. We wrote 5 functions to give direction to the vehicle. These are stop(), backward(), forward(), turnLeft() and turnRight() functions. We can consider the forward function from these functions.
 ```
 def forward():
@@ -41,6 +43,10 @@ We used VNC Viewer to complete our connections and run the code. We ran the code
 
 ------
 # Adım 3 - AprilTag ile Araca Basit Komutlar Verme
+<p float="left">
+    <img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/11.jpeg" width="400" />
+    <img src="https://github.com/fux00/ApriltagExperiment/blob/main/Images/Img/22.jpeg" width="400" />
+</p>
 Bu aşamada AprilTag'leri tanıma işlemi yapan kodumuz ile aracımıza yön veren kodumuzu birleştirdik. Araca yön verebilmek için 5 fonksiyon yazdık. Bunlar stop(), backward(), forward(), turnLeft() and turnRight() fonksiyonlarıdır. Bu fonksiyonlardan forward fonksiyonunu ele alabiliriz.
 ```
 def forward():
