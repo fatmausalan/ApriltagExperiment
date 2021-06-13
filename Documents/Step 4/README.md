@@ -31,6 +31,7 @@ We chose the Tag36h11 from the AprilTag family to steer the vehicle. We used tag
 * 12 --> turnLeft
 * 17 --> forward
 * 22 --> turnRight
+
 We have added the vehicle control codes on [test2.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/test2.py) we wrote before.
 You can find the complete code in the [car2.py](https://github.com/fux00/ApriltagExperiment/blob/main/Code/car2.py) file under the Code folder.
 
