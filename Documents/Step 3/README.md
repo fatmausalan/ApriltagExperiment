@@ -47,6 +47,7 @@ while(true):
     GPIO.output(in4,GPIO.HIGH)    
 ```
 One of the points we should pay attention to for connections was the GND connection. In order for the motors to be operated with the motor driver, a common GND connection must be made from the motor driver for Raspberry and LiPo.
+
 ------------------------------------------------------------------------------------------------------------------------------------------
 # Adım 3 - Raspberry Pi Zero ile Basit Araba
 Bu adımda Raspberry Pi ile motor sürücü ve motorların bağlantıları yapıldı. Güç beslememizi LiPo ile yaptık. LiPo üzerinden aldığımız pozitif ve negatif uçları motor sürücünün 12V girişi ile GND girişine bağladık. Raspberry'e güç beslemesi yapabilmek için micro usb kablosunu keserek kırmızı ve siyah kabloyu ayırdık. Bu kablolardan siyahı GND'ye kırmızı olanı motor sürücünün 5V çıkışına bağladık. Bu şekilde motorların ve Raspberry'nin güç beslemesini yapmış olduk.
