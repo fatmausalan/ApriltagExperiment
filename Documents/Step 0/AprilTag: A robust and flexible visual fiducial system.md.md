@@ -1,6 +1,3 @@
-# Step 0
-
-In this step, we will take a look at the articles from AprilTag's official website:
 
 ## AprilTag: A robust and flexible visual fiducial system
   
