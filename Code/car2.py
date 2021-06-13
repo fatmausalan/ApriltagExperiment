@@ -30,6 +30,11 @@ p = GPIO.PWM(en,1000)
 p1=GPIO.PWM(en2,1000)
 p.start(80)
 p1.start(80)
+def stop():
+    GPIO.output(in1,GPIO.LOW)
+    GPIO.output(in2,GPIO.LOW)
+    GPIO.output(in3,GPIO.LOW)
+    GPIO.output(in4,GPIO.LOW)
 
 def backward():
     p.ChangeDutyCycle(80)
@@ -74,7 +79,9 @@ while(True):
     #print(detections)
     for r in detections:
         print(r["id"])
-        if (int)(r["id"]) == 12:
+        if (int)(r["id"]) == 2:
+            stop()
+        elif (int)(r["id"]) == 12:
             turnLeft()
         elif (int)(r["id"]) == 22:
             turnRight()
